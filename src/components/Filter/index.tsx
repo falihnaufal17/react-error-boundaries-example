@@ -14,5 +14,9 @@ const Filter = () => {
 }
 
 export default withErrorBoundary(Filter, {
-  FallbackComponent: ErrorFallback
+  FallbackComponent: ErrorFallback,
+  onError: (error, info) => {
+      // on error, you can catch the message and send it to your logger
+      console.log(error.message, info.componentStack)
+  },
 })
